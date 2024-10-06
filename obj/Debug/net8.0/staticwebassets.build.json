@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GVm1GJhl9Ui7s3KkBetFM0Ws9J+DT1TmP1CANJGto5I=",
+  "Source": "TorusGenSrv",
+  "BasePath": "_content/TorusGenSrv",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
