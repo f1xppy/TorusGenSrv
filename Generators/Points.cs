@@ -31,11 +31,10 @@ public class Points
         double yX = (yZ * cosX) - (zY * sinX);
         double zX = (yZ * sinX) + (zY * cosX);
 
-        // Возвращаем точку обратно относительно центра
+        // Возвращаем точку в центр
         return [xY + center[0], yX + center[1], zX + center[2]];
     }
 
-    //Генерация точек на направляющей окружности
     public static Torus GeneratePointsOnMajorCircle(Torus torus)
     {
 

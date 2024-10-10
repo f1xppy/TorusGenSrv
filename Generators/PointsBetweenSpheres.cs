@@ -2,11 +2,10 @@ using TorusGenSrv.Models;
 namespace TorusGenSrv.Generators;
 public class RandomPointsBetweenSpheres
 {
-    double R1; // Радиус внутренней сферы
-    double R2; // Радиус внешней сферы
+    double R1; // Радиус меньшей сферы
+    double R2; // Радиус большей сферы
     private readonly Random random;
 
-    // Конструктор класса
     public RandomPointsBetweenSpheres(double innerRadius, double outerRadius)
     {
         if (innerRadius >= outerRadius)
@@ -19,24 +18,18 @@ public class RandomPointsBetweenSpheres
         random = new Random();
     }
 
-    // Метод для генерации случайных точек
     public Point[] GeneratePoints(int numPoints)
     {
         var points = new Point[numPoints];
 
         for (int i = 0; i < numPoints; i++)
         {
-            // Генерируем радиус r в пределах от R1 до R2
             double r = R1 + (R2 - R1) * random.NextDouble();
-
-            // Генерируем угол theta в пределах [0, 2π]
             double theta = 2 * Math.PI * random.NextDouble();
-
-            // Генерируем угол phi в пределах [0, π]
             double phi = Math.PI * random.NextDouble();
             points[i] = new Point
             {
-                // Преобразование в декартовы координаты
+                // Преобразование в прямоугольные координаты
                 X = r * Math.Sin(phi) * Math.Cos(theta),
                 Y = r * Math.Sin(phi) * Math.Sin(theta),
                 Z = r * Math.Cos(phi)

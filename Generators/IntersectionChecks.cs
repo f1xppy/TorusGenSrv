@@ -5,7 +5,6 @@ namespace TorusGenSrv.Generators;
 public class IntersectionChecks
 {
 
-    // Проверка пересечения двух сфер по их центрам и радиусам
     public static bool AreSpheresIntersecting(double[] center1, double radius1, double[] center2, double radius2)
     {
         double distanceSquared = Math.Pow(center1[0] - center2[0], 2) +
@@ -23,7 +22,6 @@ public class IntersectionChecks
         (r + torus.Center[2] <= cubeEdge / 2)); 
     }
 
-    // Проверка пересечений между сферами нового тора и уже существующими
     public static bool IsTorusIntersecting(Torus newTorus, List<Torus> existingTori, double cubeEdge)
     {
         foreach (Torus existingTorus in existingTori)
@@ -32,7 +30,7 @@ public class IntersectionChecks
             {
                 if (IsSphereIntersectingWithCube(newTorus.PointsOnMajorCircle[i], newTorus.MinorRadius, cubeEdge))
                 {
-                    return true;  // Пересечение с кубом найдено
+                    return true; 
                 }
                 double distanceSquared = Math.Pow(newTorus.Center[0] - existingTorus.Center[0], 2) +
                                  Math.Pow(newTorus.Center[1] - existingTorus.Center[1], 2) +
@@ -47,16 +45,15 @@ public class IntersectionChecks
                         if (AreSpheresIntersecting(newTorus.PointsOnMajorCircle[i], newTorus.MinorRadius,
                                                    existingTorus.PointsOnMajorCircle[j], existingTorus.MinorRadius))
                         {
-                            return true;  // Пересечение найдено
+                            return true; 
                         }
                     }
                 }
             }
         }
-        return false;  // Пересечений нет
+        return false; 
     }
 
-    // Проверка пересечения сферы с кубом
     public static bool IsSphereIntersectingWithCube(double[] sphereCenter, double sphereRadius, double cubeEdge)
     {
         double halfEdge = cubeEdge / 2;

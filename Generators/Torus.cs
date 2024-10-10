@@ -6,14 +6,13 @@ public class TorusGenerator
 {
     static readonly Random random = new();
 
-    // Генерация случайного числа в заданном диапазоне
     static double RandomDouble(double min, double max)
     {
         return (random.NextDouble() * (max - min)) + min;
     }
 
 
-    // Генерация тора без точек
+    // Тор без точек
     public static Torus GenerateTorus(double cubeEdge, double max_R, double min_R, double max_r, double min_r)
     {
 

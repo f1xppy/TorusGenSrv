@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TorusGenSrv")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba11d80e37ab92ba6b2bd8772daa27585ed6cdbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("TorusGenSrv")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TorusGenSrv")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

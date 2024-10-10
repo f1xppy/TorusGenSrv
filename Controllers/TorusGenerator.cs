@@ -53,12 +53,11 @@ public class Results
         }
         else
         {
-            toriList.Add(newTorus);  // Добавляем тор в список, если пересечений нет
+            toriList.Add(newTorus); 
             attempts = 0;
             V += newTorus.MajorRadius * newTorus.MinorRadius * newTorus.MinorRadius * 2 * Math.PI * Math.PI;
         }
 
-        // Генерация заданного количества торов
         for (int i = 1; i < numberOfTori; i++)
         {
             do
@@ -71,10 +70,10 @@ public class Results
                 while (newTorus.MajorRadius < newTorus.MinorRadius);
                 newTorus = Points.GeneratePointsOnMajorCircle(newTorus);
             }
-            // Проверяем пересечение с существующими
+
             while (IntersectionChecks.IsTorusIntersecting(newTorus, toriList, cubeEdge) && attempts < maxAttempts);
             Nc = V / CubeV;
-            // Если не удалось сгенерировать тор за отведенное количество попыток
+
             if ((attempts >= maxAttempts) | (Nc >= 40))
             {
                 Console.WriteLine($"Не удалось сгенерировать {numberOfTori - (i + 1)} торов.");
@@ -83,15 +82,15 @@ public class Results
             }
             else
             {
-                toriList.Add(newTorus);  // Добавляем тор в список, если пересечений нет
+                toriList.Add(newTorus); 
                 attempts = 0;
                 V += newTorus.MajorRadius * newTorus.MinorRadius * newTorus.MinorRadius * 2 * Math.PI * Math.PI;
             }
         }
 
-
+        DataStorage.DataStorage.SetData("toriList", toriList, TimeSpan.FromMinutes(30));
         TorusGenerationResult result = new(cubeEdge, notGenerated, Nc, numberOfTori, toriList);
-
+        Console.WriteLine(V);
         return JsonConvert.SerializeObject(result, Formatting.Indented);
     }
 
